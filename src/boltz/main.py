@@ -630,6 +630,7 @@ def predict(
         targets_dir=processed_dir / "structures",
         msa_dir=processed_dir / "msa",
     )
+    print("processed data", processed)
 
     # Create data module
     data_module = BoltzInferenceDataModule(
@@ -638,6 +639,7 @@ def predict(
         msa_dir=processed.msa_dir,
         num_workers=num_workers,
     )
+    print("data module", data_module)
 
     # Load model
     if checkpoint is None:

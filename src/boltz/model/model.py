@@ -345,6 +345,8 @@ class Boltz1(LightningModule):
         if self.confidence_prediction:
             dict_out.update(
                 self.confidence_module(
+                    #s_inputs=s_inputs,
+                    #s=s,
                     s_inputs=s_inputs.detach(),
                     s=s.detach(),
                     z=z.detach(),

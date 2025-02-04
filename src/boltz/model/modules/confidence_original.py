@@ -75,11 +75,6 @@ class ConfidenceModule(nn.Module):
 
         """
         super().__init__()
-        # Retaining gradients for the seq representation
-        #token_s.requires_grad = True
-        #token_s.retaingrad()
-        print("token_s", token_s)
-
         self.max_num_atoms_per_token = 23
         self.no_update_s = pairformer_args.get("no_update_s", False)
         boundaries = torch.linspace(2, max_dist, num_dist_bins - 1)
@@ -364,11 +359,6 @@ class ConfidenceHeads(nn.Module):
         """
 
         super().__init__()
-        # Retaining gradients for the seq representation
-        #token_s.requires_grad = True
-        #token_s.retaingrad()
-        print("token_s (confidence head)", token_s)
-
         self.max_num_atoms_per_token = 23
         self.to_pde_logits = LinearNoBias(token_z, num_pde_bins)
         self.to_plddt_logits = LinearNoBias(token_s, num_plddt_bins)
@@ -425,11 +415,6 @@ class ConfidenceHeads(nn.Module):
         complex_iplddt = (plddt * token_pad_mask * iplddt_weight).sum(dim=-1) / (
             torch.sum(token_pad_mask * iplddt_weight, dim=-1) + 1e-5
         )
-
-        # Getting greadients for the sequence
-        complex_iplddt.backward()
-        seq_grad = s.grad()
-        print("seq grad", seq_grad)
 
         # Compute the aggregated PDE and iPDE
         pde = compute_aggregated_metric(pde_logits, end=32)

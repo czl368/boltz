@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# User added
+examples/6d40*
+examples/multimer*.yaml
+.DS_Store*
+src/boltz/lightning_logs/
+
 # C extensions
 *.so
 

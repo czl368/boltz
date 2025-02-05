@@ -487,9 +487,9 @@ def main():
     # Save the best sequence
     best_sequence_path = OUT_DIR / "best_sequence.fasta"
     with open(best_sequence_path, "w") as f:
-        f.write(f">Optimized_Sequence\n{best_sequence}")
-        f.write(f"New best sequence found with pLDDT: {best_plddt:.2f}")
-        f.write(f"Best iteration: iteration_{best_iteration}")
+        f.write(f">Optimized_Sequence\n{best_sequence}\n")
+        f.write(f">New best sequence found with pLDDT\n{best_plddt:.2f}\n")
+        f.write(f">Best iteration:\niteration_{best_iteration}")
 
     print(f"Optimization complete! Best sequence saved to {best_sequence_path}")
 

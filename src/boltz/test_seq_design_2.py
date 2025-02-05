@@ -20,7 +20,7 @@ from boltz.data.write.writer import BoltzWriter
 from boltz.model.model import Boltz1
 
 # Default Parameters
-DATA_PATH = Path("/Users/christinali/boltz/examples/6d40_short_prot_random_seq.yaml")
+DATA_PATH = Path("/Users/christinali/boltz/examples/6d40_random_seq.yaml")
 OUT_DIR = Path("./design_results")
 CACHE_DIR = Path("~/.boltz").expanduser()
 CCD_DIR = CACHE_DIR / "ccd.pkl"

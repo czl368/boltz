@@ -8,6 +8,7 @@ src/boltz/lightning_logs/
 src/boltz/design_results*/
 examples/6d40*
 examples/multimer*.yaml
+.DS_store*
 
 # C extensions
 *.so
